@@ -12,7 +12,7 @@ public class CommentService {
 	@Autowired
 	private ApplicationContext context;
 	
-	public void sendComment(Comment c) {
+	public CommentProcessor sendComment(Comment c) {
 		
 		var p = context.getBean("commentProcessor", CommentProcessor.class);
 		
@@ -22,6 +22,7 @@ public class CommentService {
 		c = p.getComment();
 		// 추가적 작업 수행
 		System.out.println("comment sent");
+		return p;
 	}
 
 }
